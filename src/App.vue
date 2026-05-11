@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import DatePicker from './components/DatePicker.vue';
+
 </script>
 
 <template>
-  <h1>init</h1>
+  <DatePicker />
 </template>
