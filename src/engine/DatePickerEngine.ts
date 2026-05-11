@@ -53,7 +53,6 @@ export class DatePickerEngine implements CalendarEngine {
     const { year, month, daysInMonth } = this.yearMonth
     const firstOfMonth = Temporal.PlainDate.from({ year, month, day: 1 })
 
-    // dayOfWeek: 1=Mon…7=Sun (ISO 8601). Leading offset for a Monday-first grid.
     const leadingDays = firstOfMonth.dayOfWeek - 1
 
     const days: CalendarDay[] = []

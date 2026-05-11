@@ -1,7 +1,5 @@
 <template>
   <div class="dp-wrapper" ref="wrapperRef">
-
-    <!-- Input -->
     <div class="dp-input-wrapper">
       <input
         ref="inputRef"
@@ -20,7 +18,6 @@
       <span class="dp-icon" aria-hidden="true" @click="toggle">📅</span>
     </div>
 
-    <!-- Calendar popover -->
     <div
       v-if="isOpen"
       class="dp-popover"
@@ -29,8 +26,6 @@
       aria-label="Calendario"
       @keydown.esc="close"
     >
-
-      <!-- Navigation header -->
       <div class="dp-header">
         <button class="dp-nav-btn" @click="navigate('prevYear')" aria-label="Año anterior">«</button>
         <button class="dp-nav-btn" @click="navigate('prevMonth')" aria-label="Mes anterior">‹</button>
@@ -39,12 +34,10 @@
         <button class="dp-nav-btn" @click="navigate('nextYear')" aria-label="Año siguiente">»</button>
       </div>
 
-      <!-- Day name column headers (visual only) -->
       <div class="dp-day-names" aria-hidden="true">
         <span v-for="day in DAY_NAMES" :key="day" class="dp-day-name">{{ day }}</span>
       </div>
 
-      <!-- Date grid -->
       <div role="grid" class="dp-grid">
         <div
           v-for="(week, wi) in weeks"
@@ -76,11 +69,9 @@
         </div>
       </div>
 
-      <!-- Footer -->
       <div class="dp-footer">
         <button class="dp-today-btn" @click="goToToday">Hoy</button>
       </div>
-
     </div>
   </div>
 </template>
@@ -108,7 +99,6 @@ const {
 </script>
 
 <style scoped>
-/* ─── Design tokens ─────────────────────────────────────────────────────────── */
 .dp-wrapper {
   --dp-primary:          #3b82f6;
   --dp-primary-hover:    #2563eb;
@@ -135,7 +125,6 @@ const {
   color: var(--dp-text);
 }
 
-/* ─── Input ─────────────────────────────────────────────────────────────────── */
 .dp-input-wrapper {
   position: relative;
   display: inline-flex;
@@ -168,7 +157,6 @@ const {
   user-select: none;
 }
 
-/* ─── Popover ───────────────────────────────────────────────────────────────── */
 .dp-popover {
   position: absolute;
   top: calc(100% + 8px);
@@ -188,7 +176,6 @@ const {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ─── Header ────────────────────────────────────────────────────────────────── */
 .dp-header {
   display: flex;
   align-items: center;
@@ -230,7 +217,6 @@ const {
   outline-offset: 1px;
 }
 
-/* ─── Day name column headers ───────────────────────────────────────────────── */
 .dp-day-names {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -245,7 +231,6 @@ const {
   padding: 4px 0;
 }
 
-/* ─── Date grid ─────────────────────────────────────────────────────────────── */
 .dp-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -310,7 +295,6 @@ const {
   opacity: 0.5;
 }
 
-/* ─── Footer ────────────────────────────────────────────────────────────────── */
 .dp-footer {
   margin-top: 12px;
   display: flex;
